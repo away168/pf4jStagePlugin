@@ -1,4 +1,4 @@
-package io.armory.plugin.stage.wait.random
+package io.armory.plugin.stage.pagerduty
 
 import com.netflix.spinnaker.orca.api.simplestage.SimpleStageInput
 import com.netflix.spinnaker.orca.api.simplestage.SimpleStageOutput

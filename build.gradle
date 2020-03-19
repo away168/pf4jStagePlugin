@@ -16,16 +16,16 @@ apply plugin: "io.spinnaker.plugin.bundler"
 
 // customize this for your plugin
 spinnakerBundle {
-  pluginId = "Armory.RandomWaitPlugin"  //need to fit the form: [namespace].[NameOfPlugin]  [namespace] is arbitrary
-  description = "An example of a PF4J based plugin, that provides a new stage."  // optional
-  provider = "https://github.com/claymccoy"  // optional
+  pluginId = "Armory.PagerDutyPlugin"  //need to fit the form: [namespace].[NameOfPlugin]  [namespace] is arbitrary
+  description = "An example of a PF4J based plugin, that provides a new stage - modified for PagerDuty"  // optional
+  provider = "https://github.com/away168"  // optional
   version = rootProject.version
 }
 
 version = normalizedVersion()
 
 subprojects {
-  group = "io.armory.plugin.stage.wait.random"  // REQUIRED: Must match the package where the plugin is
+  group = "io.armory.plugin.stage.pagerduty"  // REQUIRED: Must match the package where the plugin is
   version = rootProject.version
 }
 

@@ -1,4 +1,4 @@
-package io.armory.plugin.stage.wait.random
+package io.armory.plugin.stage.pagerduty
 
 import com.netflix.spinnaker.orca.api.simplestage.SimpleStage
 import com.netflix.spinnaker.orca.api.simplestage.SimpleStageInput
@@ -12,8 +12,8 @@ import java.util.concurrent.TimeUnit
 import java.util.*
 
 
-class RandomWaitPlugin(wrapper: PluginWrapper) : Plugin(wrapper) {
-    private val logger = LoggerFactory.getLogger(RandomWaitPlugin::class.java)
+class PagerDutyPlugin(wrapper: PluginWrapper) : Plugin(wrapper) {
+    private val logger = LoggerFactory.getLogger(PagerDutyPlugin::class.java)
 
     // lifecycle hook - called when plugin gets loaded
     // something might be useful is to do a sanity check - no way to get configs though
@@ -34,7 +34,7 @@ class RandomWaitPlugin(wrapper: PluginWrapper) : Plugin(wrapper) {
  * your stage is available for use in Spinnaker.
  */
 @Extension  // REQUIRED.
-class RandomWaitStage(val configuration: RandomWaitConfig) : SimpleStage<RandomWaitInput> {
+class PagerDutyStage(val configuration: Config) : SimpleStage<Input> {
 
     private val log = LoggerFactory.getLogger(SimpleStage::class.java)
 
@@ -43,7 +43,7 @@ class RandomWaitStage(val configuration: RandomWaitConfig) : SimpleStage<RandomW
      * @return the name of the stage
      */
     override fun getName(): String {
-        return "randomWait"
+        return "pagerDuty"
     }
 
     /**
@@ -55,20 +55,21 @@ class RandomWaitStage(val configuration: RandomWaitConfig) : SimpleStage<RandomW
      * @param stageInput<RandomWaitInput>
      * @return the status of the stage and any context that should be passed to the pipeline context
     </RandomWaitInput> */
-    override fun execute(stageInput: SimpleStageInput<RandomWaitInput>): SimpleStageOutput<*, *> {
-        val rand = Random()
-        val maxWaitTime = stageInput.value.maxWaitTime
-        val timeToWait = rand.nextInt(maxWaitTime)
+    override fun execute(stageInput: SimpleStageInput<Input>): SimpleStageOutput<*, *> {
+//        val rand = Random()
+        val url = configuration.url
+        val query = stageInput.value.query
+//        val timeToWait = rand.nextInt(maxWaitTime)
 
-        try {
-            TimeUnit.SECONDS.sleep(timeToWait.toLong())
-        } catch (e: Exception) {
-            log.error("{}", e)
-        }
+//        try {
+//            TimeUnit.SECONDS.sleep(timeToWait.toLong())
+//        } catch (e: Exception) {
+//            log.error("{}", e)
+//        }
 
         val stageOutput = SimpleStageOutput<Output, Context>()
-        val output = Output(timeToWait)
-        val context = Context(maxWaitTime)
+        val output = Output(true)
+        val context = Context(url + "  " + query)
 
         stageOutput.setOutput(output)
         stageOutput.setContext(context)

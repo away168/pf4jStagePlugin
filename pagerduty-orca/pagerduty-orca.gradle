@@ -24,7 +24,7 @@ repositories {
 
 spinnakerPlugin {
   serviceName = "orca"  // the service that its based off of
-  pluginClass = "io.armory.plugin.stage.wait.random.RandomWaitPlugin"  // REQUIRED: Must match full classpath
+  pluginClass = "io.armory.plugin.stage.pagerduty.RandomWaitPlugin"  // REQUIRED: Must match full classpath
 }
 // the dependencies you want to use for this Plugin.
 // pf4j - required
