@@ -8,6 +8,7 @@ pluginManagement {
 
 rootProject.name="pf4jStagePlugin"
 
+// comments: rename the bottom to match the project names.
 include "random-wait-orca", "random-wait-deck"
 
 def setBuildFile(project) {

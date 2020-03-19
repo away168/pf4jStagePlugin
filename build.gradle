@@ -14,17 +14,18 @@ plugins {
 }
 apply plugin: "io.spinnaker.plugin.bundler"
 
+// customize this for your plugin
 spinnakerBundle {
-  pluginId = "Armory.RandomWaitPlugin"
-  description = "An example of a PF4J based plugin, that provides a new stage."
-  provider = "https://github.com/claymccoy"
+  pluginId = "Armory.RandomWaitPlugin"  //need to fit the form: [namespace].[NameOfPlugin]  [namespace] is arbitrary
+  description = "An example of a PF4J based plugin, that provides a new stage."  // optional
+  provider = "https://github.com/claymccoy"  // optional
   version = rootProject.version
 }
 
 version = normalizedVersion()
 
 subprojects {
-  group = "io.armory.plugin.stage.wait.random"
+  group = "io.armory.plugin.stage.wait.random"  // REQUIRED: Must match the package where the plugin is
   version = rootProject.version
 }
 

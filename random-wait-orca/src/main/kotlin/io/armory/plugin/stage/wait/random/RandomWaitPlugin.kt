@@ -15,10 +15,15 @@ import java.util.*
 class RandomWaitPlugin(wrapper: PluginWrapper) : Plugin(wrapper) {
     private val logger = LoggerFactory.getLogger(RandomWaitPlugin::class.java)
 
+    // lifecycle hook - called when plugin gets loaded
+    // something might be useful is to do a sanity check - no way to get configs though
+    // future: may add more lifecycle hooks: verify / healthcheck
     override fun start() {
         logger.info("RandomWaitPlugin.start()")
     }
 
+    // lifecycle hook - when gracefully shutdown by orca
+    // nothing really happens here other than logging
     override fun stop() {
         logger.info("RandomWaitPlugin.stop()")
     }
@@ -28,7 +33,7 @@ class RandomWaitPlugin(wrapper: PluginWrapper) : Plugin(wrapper) {
  * Example stage that implements the Orca API Stage interface. By implementing Stage,
  * your stage is available for use in Spinnaker.
  */
-@Extension
+@Extension  // REQUIRED.
 class RandomWaitStage(val configuration: RandomWaitConfig) : SimpleStage<RandomWaitInput> {
 
     private val log = LoggerFactory.getLogger(SimpleStage::class.java)
