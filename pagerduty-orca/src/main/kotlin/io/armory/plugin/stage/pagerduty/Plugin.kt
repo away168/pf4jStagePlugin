@@ -19,13 +19,13 @@ class PagerDutyPlugin(wrapper: PluginWrapper) : Plugin(wrapper) {
     // something might be useful is to do a sanity check - no way to get configs though
     // future: may add more lifecycle hooks: verify / healthcheck
     override fun start() {
-        logger.info("RandomWaitPlugin.start()")
+        logger.info("PagerDutyPlugin.start()")
     }
 
     // lifecycle hook - when gracefully shutdown by orca
     // nothing really happens here other than logging
     override fun stop() {
-        logger.info("RandomWaitPlugin.stop()")
+        logger.info("PagerDutyPlugin.stop()")
     }
 }
 
