@@ -6,7 +6,7 @@ pluginManagement {
   }
 }
 
-rootProject.name="pf4jStagePlugin"
+rootProject.name="pagerDutyStagePlugin"
 
 // comments: rename the bottom to match the project names.
 include "pagerduty-orca", "pagerduty-deck"

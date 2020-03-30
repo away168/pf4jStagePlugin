@@ -34,9 +34,9 @@ class PagerDutyPlugin(wrapper: PluginWrapper) : Plugin(wrapper) {
  * your stage is available for use in Spinnaker.
  */
 @Extension  // REQUIRED.
-class PagerDutyStage(val configuration: Config) : SimpleStage<Input> {
+class PagerDutyStage(private val configuration: Config) : SimpleStage<Input> {
 
-    private val log = LoggerFactory.getLogger(SimpleStage::class.java)
+    private val log = LoggerFactory.getLogger(PagerDutyStage::class.java)
 
     /**
      * This sets the name of the stage
