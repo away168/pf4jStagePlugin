@@ -1,16 +1,13 @@
 package io.armory.plugin.stage.pagerduty
 
-import com.netflix.spinnaker.orca.api.simplestage.SimpleStage
-import com.netflix.spinnaker.orca.api.simplestage.SimpleStageInput
-import com.netflix.spinnaker.orca.api.simplestage.SimpleStageOutput
-import com.netflix.spinnaker.orca.api.simplestage.SimpleStageStatus
+import com.netflix.spinnaker.orca.api.SimpleStage
+import com.netflix.spinnaker.orca.api.SimpleStageInput
+import com.netflix.spinnaker.orca.api.SimpleStageOutput
+import com.netflix.spinnaker.orca.api.SimpleStageStatus
 import org.slf4j.LoggerFactory
 import org.pf4j.Extension
 import org.pf4j.Plugin
 import org.pf4j.PluginWrapper
-import java.util.concurrent.TimeUnit
-import java.util.*
-
 
 class PagerDutyPlugin(wrapper: PluginWrapper) : Plugin(wrapper) {
     private val logger = LoggerFactory.getLogger(PagerDutyPlugin::class.java)
